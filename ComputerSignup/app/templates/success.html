@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 style="color: lightgreen">Success!</h1>
+<h3>Content Submitted:</h3>
+<table>
+    <tr>
+        <td>Student ID:</td>
+        <td>{{info[0]}}</td>
+    </tr>
+    <tr>
+        <td>First Name:</td>
+        <td>{{info[1]}}</td>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td>{{info[2]}}</td>
+    </tr>
+    <tr>
+        <td>Computer Name:</td>
+        <td>{{info[3]}}</td>
+    </tr>
+</table>
+
+{% endblock %}

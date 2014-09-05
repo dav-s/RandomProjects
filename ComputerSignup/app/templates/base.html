@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Computer Submission Form</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='base.css')}}">
+</head>
+<body>
+
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+
+<div id="footer">Made by <a href="http://daviskr.com">Davis Robertson</a>.</div>
+
+<script src="{{url_for('static', filename='base.js')}}"></script>
+</body>
+</html>

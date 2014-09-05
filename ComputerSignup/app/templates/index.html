@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Welcome to Tablet Rollout!</h1>
+<h3>Please fill out the data below: </h3>
+<div id="errors">{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}</div>
+<form action="submit" method="post" id="formy" name="formy" onsubmit="return checkandsub()">
+    <table>
+    <tr>
+        <td>Student ID <small>(without the 'S')</small>: </td>
+        <td><input type="text" name="stid"></td>
+    </tr>
+    <tr>
+        <td>First Name: </td>
+        <td><input type="name" name="fname"></td>
+    </tr>
+    <tr>
+        <td>Last Name: </td>
+        <td><input type="name" name="lname"></td>
+    </tr>
+    <tr>
+        <td>Computer Name <small>(bottom left corner of My Computer)</small>: </td>
+        <td><input type="text" name="cname"></td>
+    </tr>
+    <tr>
+        <th class="tsent" colspan="0"><input type="submit" value="Submit"></th>
+    </tr>
+    </table>
+</form>
+
+{% endblock %}
