@@ -20,6 +20,23 @@
         <td>Computer Name:</td>
         <td>{{info[3]}}</td>
     </tr>
+    <tr>
+        <td>Teacher:</td>
+        <td>{{info[4]}}</td>
+    </tr>
+    <tr>
+        <td>Paid lab fee:</td>
+        <td>
+            {% if info[5] %}
+            Yes
+            {% else %}
+            No
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><button class="tsent" action="/">Back Home</button></td>
+    </tr>
 </table>
 
 {% endblock %}

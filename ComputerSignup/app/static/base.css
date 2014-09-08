@@ -24,6 +24,31 @@ a:hover{
     color: black;
 }
 
+button{
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+
+    padding: 5px 10px 5px 10px;
+
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+}
+
+select{
+    width: 100%;
+}
+
 h1{
     color: white;
     text-shadow: 0 3px 0 black;
@@ -77,7 +102,7 @@ table tr{
     transition: all .25s ease-out;
 }
 
-table tr:hover, tr:focus {
+table tr:hover{
     color: white;
 }
 
