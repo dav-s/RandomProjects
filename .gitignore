@@ -19,6 +19,7 @@ pip-log.txt
 
 */.idea/
 *.iml
+*/out/
 
 #############
 ## Databases
