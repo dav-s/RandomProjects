@@ -1,5 +1,6 @@
-from app import Base
 from sqlalchemy import Column, Integer, String, Date
+
+from app import Base
 
 
 class Student(Base):
