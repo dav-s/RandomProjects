@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date
 
-from app import Base
+from app import Base, engine
 
 
 class Student(Base):
@@ -24,7 +24,13 @@ class Teacher(Base):
 class Schedule(Base):
     __tablename__ = "schedules"
 
-    roomid = Column(Integer)
-    studentid = Column(Integer)
-    oldroomid = Column(Integer)
-    date = Column(Date)
+    studentid = Column(Integer, primary_key=True)
+    date = Column(Date, primary_key=True)
+    newroomid = Column(Integer)
+    homeroomid = Column(Integer)
+
+print Student.__table__
+print Teacher.__table__
+print Schedule.__table__
+
+Base.metadata.create_all(engine)

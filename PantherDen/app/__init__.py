@@ -11,3 +11,7 @@ session = Session()
 
 app = falcon.API()
 
+import routes as rs
+
+app.add_route("/teacher/{teacherid}/", rs.Teacher())
+app.add_route("/teacher/{teacherid}/students/today", rs.StudentsWithTeacherToday())
