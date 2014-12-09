@@ -49,9 +49,11 @@ commands = {
 
 
 # Separates brackets:
+#    Examples:
 #    >+..           -->    None
 #    >+[<]>.        -->    [">+", "<", ">."]
 #    +[+[-]+[-].]   -->    ["+", "+[-]+[-].", ""]
+#    .[+>].++[-].   -->    [".", "+>", ".++[-]."]
 def separatep(s):
     if "[" in s:
         if "]" not in s:
@@ -110,11 +112,22 @@ def execbf(bf):
     basicexec(lp)
     print()
 
-# TODO Input from a file
+
 # TODO Multiline Programs
 
-inp = "".join([c for c in raw_input("Input BF Code: ") if c in commands])
-
-s["stdin"] = [ord(c) for c in raw_input("Standard Input: ")]
-
-execbf(inp)
+if __name__ == "__main__":
+    import sys
+    toex = ""
+    if len(sys.argv) == 1:
+        toex = "".join([c for c in raw_input("Input BF Code: ") if c in commands])
+        s["stdin"] = [ord(c) for c in raw_input("Standard Input: ")]
+    elif sys.argv[1] == "-f":
+        f = None
+        try:
+            f = open(sys.argv[2])
+        except:
+            print("ERROR: No file specified")
+            quit()
+        toex = "".join([c for c in f.read() if c in commands])
+        s["stdin"] = [ord(c) for c in raw_input("Standard Input: ")]
+    execbf(toex)
