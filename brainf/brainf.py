@@ -48,13 +48,13 @@ commands = {
 }
 
 
-# Separates brackets:
+# Separates the first brackets section
 #    Examples:
 #    >+..           -->    None
 #    >+[<]>.        -->    [">+", "<", ">."]
 #    +[+[-]+[-].]   -->    ["+", "+[-]+[-].", ""]
 #    .[+>].++[-].   -->    [".", "+>", ".++[-]."]
-def separatep(s):
+def separate_brackets(s):
     if "[" in s:
         if "]" not in s:
             print("ERROR: No Matching ]")
@@ -82,34 +82,34 @@ def separatep(s):
 
 
 # Executes a basic string not including brackets
-def basicexec(s):
+def basic_execute(s):
     for c in s:
         commands[c]()
 
 
 # Executes a bracket subsection
-def execss(ss):
+def execute_bracket_section(ss):
     while s["a"][s["ptr"]]:
-        psr = separatep(ss)
+        psr = separate_brackets(ss)
         lp = ss
         while psr:
-            basicexec(psr[0])
-            execss(psr[1])
+            basic_execute(psr[0])
+            execute_bracket_section(psr[1])
             lp = psr[2]
-            psr = separatep(lp)
-        basicexec(lp)
+            psr = separate_brackets(lp)
+        basic_execute(lp)
 
 
 # Executes any BF string
-def execbf(bf):
-    psr = separatep(bf)
+def execute_bf(bf):
+    psr = separate_brackets(bf)
     lp = bf
     while psr:
-        basicexec(psr[0])
-        execss(psr[1])
+        basic_execute(psr[0])
+        execute_bracket_section(psr[1])
         lp = psr[2]
-        psr = separatep(lp)
-    basicexec(lp)
+        psr = separate_brackets(lp)
+    basic_execute(lp)
     print()
 
 
@@ -117,9 +117,9 @@ def execbf(bf):
 
 if __name__ == "__main__":
     import sys
-    toex = ""
+    to_execute = ""
     if len(sys.argv) == 1:
-        toex = "".join([c for c in raw_input("Input BF Code: ") if c in commands])
+        to_execute = "".join([c for c in raw_input("Input BF Code: ") if c in commands])
         s["stdin"] = [ord(c) for c in raw_input("Standard Input: ")]
     elif sys.argv[1] == "-f":
         f = None
@@ -128,6 +128,7 @@ if __name__ == "__main__":
         except:
             print("ERROR: No file specified")
             quit()
-        toex = "".join([c for c in f.read() if c in commands])
+        to_execute = "".join([c for c in f.read() if c in commands])
+        f.close()
         s["stdin"] = [ord(c) for c in raw_input("Standard Input: ")]
-    execbf(toex)
+    execute_bf(to_execute)
