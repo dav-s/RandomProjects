@@ -87,8 +87,8 @@ function drawLines(ctx, ps){
     }
 }
 
-function drawSquare(ctx, p, r){
-    ctx.fillRect(p.x-r/2, p.y-r/2, r, r);
+function drawSquare(ctx, p, s){
+    ctx.fillRect(p.x-s/2, p.y-s/2, s, s);
 }
 
 function drawSegment(ctx, p1, p2){
