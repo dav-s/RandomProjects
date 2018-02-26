@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+
+<div id="myContainer"></div>
+
+<script src="https://cdn.rawgit.com/gportelli/pocket.gl/v1.2.3/dist/pocket.gl.min.js"></script>
+<script type="text/javascript">
+
+    window.addEventListener("load", function () {
+        new PocketGL("myContainer", {
+            vertexShaderFile: "vertex.glsl",
+            fragmentShaderFile: "fragment.glsl",
+            meshes: [
+                {
+                    type: "plane",
+                    name: "Ocean",
+                    // doubleSided: true,
+                    rx: -90,
+                    subdivision: 128,
+                    scale: 1.5
+                }
+            ],
+            animated: true,
+            autoOrbit: true,
+            zoom: true,
+            cameraDistance: 75
+        });
+    });
+
+</script>
+
+</body>
+</html>
