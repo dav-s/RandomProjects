@@ -12,24 +12,7 @@
 <script type="text/javascript">
 
     window.addEventListener("load", function () {
-        new PocketGL("myContainer", {
-            vertexShaderFile: "vertex.glsl",
-            fragmentShaderFile: "fragment.glsl",
-            meshes: [
-                {
-                    type: "plane",
-                    name: "Ocean",
-                    // doubleSided: true,
-                    rx: -90,
-                    subdivision: 128,
-                    scale: 1.5
-                }
-            ],
-            animated: true,
-            autoOrbit: true,
-            zoom: true,
-            cameraDistance: 75
-        });
+        new PocketGL("myContainer", "params.js");
     });
 
 </script>
